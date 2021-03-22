@@ -1,17 +1,12 @@
 import { Marker, Polygon, Popup } from "react-leaflet";
 import L from 'leaflet'
 
-function City(){
-    const coords = [
-        [546.5, 487.5],
-        [546.5, 536],
-        [503, 540.5],
-        [502.5, 485.5]
-    ]
+function City(props){
+    const coords = props.coords
     const center = L.polygon(coords).getBounds().getCenter()
     const text = L.divIcon({
-        html: `<span>Littleroot Town</span>`,
-        className: 'city'
+        html: `<span>${props.name}</span>`,
+        className: props.type
     })
 
 

@@ -8,9 +8,8 @@
         font-family: 'Roboto', sans-serif;
         -webkit-font-smoothing: antialiased;
 
-        .city{
+        .city, .town{
             text-align: center;
-            position: relative;
 
             span{
                 font-weight: 800;
@@ -22,7 +21,7 @@
                 transform: translate(-50%, -50%);
                 color: #FFF;
                 background: #1c80c2;
-                padding: 5px;
+                padding: 5px 10px;
                 border-radius: 20px;
                 line-height: 1;
                 white-space: nowrap;
@@ -33,6 +32,16 @@
                     background: #1e97e7;
                     margin-top: -2px;
                     box-shadow: 0 8px 15px rgba(0,0,0,.4);
+                }
+            }
+        }
+
+        .city{
+            span{
+                background: #bd3131;
+
+                &:hover{
+                    background: #e24848;
                 }
             }
         }

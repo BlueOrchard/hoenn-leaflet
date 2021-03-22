@@ -4,12 +4,14 @@ import hoenn from './hoenn-map.png'
 
 import '../../util/leaflet/leaflet.css'
 import './Map.scss'
+
+import cities from '../../util/json/cities.json'
 import City from './City';
 
 function Events(){
     const map = useMapEvents({
         click(e) {     
-            console.log(`Lat: ${e.latlng.lat}, Long: ${e.latlng.lng}`)
+            console.log(`[${e.latlng.lat}, ${e.latlng.lng}]`)
         },            
     })
 
@@ -22,10 +24,6 @@ function Map(){
         [1809, 2560]
     ]
 
-    function getCoords(e){
-        console.log(e)
-    }
-
     return(
         <div className="map-container">
             <MapContainer
@@ -34,7 +32,6 @@ function Map(){
                 zoom={0.5}
                 bounds={bounds}
                 maxBounds={bounds}
-                onClick={getCoords}
             >
                 <Events />
                 <ImageOverlay 
@@ -45,7 +42,17 @@ function Map(){
                     zIndex={10}
                 />
 
-                <City />
+                {cities.map((city) => {
+                    if(city.coords.length > 0){
+                        return <City 
+                            coords={city.coords}
+                            name={city.name}
+                            id={city.id}
+                            type={city.type}
+                            key={city.id} 
+                        />
+                    }
+                })}
             </MapContainer>
         </div>
     )

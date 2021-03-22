@@ -1,0 +1,30 @@
+.sidebar{
+    position: relative;
+    background: linear-gradient(#eeeeee, #c9c9c9);
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.185);
+    z-index: 999;
+    padding: 10px;
+
+    img{
+        width: 100%;
+        display: block;
+        cursor: pointer;
+        opacity: 0.3;
+        transition: 0.25s all;
+
+        &:hover{
+            opacity: 1;
+            animation: 2s rotate cubic-bezier(1,0,0,1) infinite;
+        }
+    }
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(1080deg);
+    }
+}

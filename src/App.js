@@ -1,7 +1,10 @@
+import Map from "./components/map/Map";
+import './App.scss'
+
 function App(){
     return(
-        <div>
-            Hello World!
+        <div className="app">
+            <Map/>
         </div>
     )
 }

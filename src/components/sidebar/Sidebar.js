@@ -1,10 +1,10 @@
-import './Sidebar.scss'
-import pokeball from './icons8-pokeball-64.png'
 import { AnimatePresence, motion } from 'framer-motion';
-import { pageSlide, pageTransition } from '../../util/animations';
-import Popout from './Popout';
-import { toggleSidebar } from '../../store/appData';
 import { useDispatch, useSelector } from 'react-redux';
+import { toggleSidebar } from '../../store/appData';
+import { pageSlide, pageTransition } from '../../util/animations';
+import pokeball from './icons8-pokeball-64.png';
+import Popout from './Popout';
+import './Sidebar.scss';
 
 function Sidebar(){
     const sidebarState = useSelector(state => state.appData.sidebarState)

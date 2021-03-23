@@ -1,4 +1,4 @@
-import { ImageOverlay, MapContainer, Marker, Polygon, useMapEvents } from 'react-leaflet';
+import { ImageOverlay, MapContainer, useMapEvents } from 'react-leaflet';
 import L from 'leaflet'
 import hoenn from './hoenn-map.png'
 
@@ -33,6 +33,7 @@ function Map(){
                 maxZoom={1.5}
                 bounds={bounds}
                 maxBounds={bounds}
+                maxBoundsViscosity={1}
             >
                 <Events />
                 <ImageOverlay 
@@ -43,17 +44,15 @@ function Map(){
                     zIndex={10}
                 />
 
-                {cities.map((city) => {
-                    if(city.coords.length > 0){
-                        return <City 
-                            coords={city.coords}
-                            name={city.name}
-                            id={city.id}
-                            type={city.type}
-                            key={city.id} 
-                        />
-                    }
-                })}
+                {cities.map((city) => (
+                    <City 
+                        coords={city.coords}
+                        name={city.name}
+                        id={city.id}
+                        type={city.type}
+                        key={city.id} 
+                    />
+                ))}
             </MapContainer>
         </div>
     )

@@ -1,5 +1,7 @@
-import { Marker, Polygon, Popup } from "react-leaflet";
+import { Marker, Polygon } from "react-leaflet";
 import L from 'leaflet'
+import { setSidebarState } from "../../store/appData";
+import { useDispatch } from "react-redux";
 
 function City(props){
     const coords = props.coords
@@ -8,10 +10,12 @@ function City(props){
         html: `<span>${props.name}</span>`,
         className: props.type
     })
+    const dispatch = useDispatch()
 
 
     function cityLookup(){
-        console.log("CLICKED")
+        dispatch(setSidebarState(true))
+        // dispatch the other stuff here
     }
 
     return(

@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export const appDataSlice = createSlice({
     name: 'appData',
@@ -9,8 +9,8 @@ export const appDataSlice = createSlice({
         toggleSidebar: state => {
             state.sidebarState = !state.sidebarState
         },
-        setSidebarState: (state, payload) => {
-            state.sidebarState = payload.payload
+        setSidebarState: (state, action: PayloadAction<boolean>) => {
+            state.sidebarState = action.payload
         }
     }
 })

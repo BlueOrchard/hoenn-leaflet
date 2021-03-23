@@ -30,7 +30,7 @@ function Map(){
                 crs={L.CRS.Simple}
                 center={[520, 508]} 
                 zoom={0.5}
-                maxZoom={1.5}
+                maxZoom={1}
                 bounds={bounds}
                 maxBounds={bounds}
                 maxBoundsViscosity={1}

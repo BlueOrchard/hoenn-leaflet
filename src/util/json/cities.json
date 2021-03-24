@@ -144,7 +144,7 @@
     },
     {
         "name"  : "Sootopolis City",
-        "id"    :4330,
+        "id"    :433,
         "type"  : "city",
         "coords": [
             [1073, 1868],

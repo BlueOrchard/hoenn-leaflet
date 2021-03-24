@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 type appDataState = {
-    sidebarState: boolean
+    sidebarState: boolean,
 }
 
 const initialState : appDataState = {
-    sidebarState: false
+    sidebarState: false,
 }
 
 export const appDataSlice = createSlice({

@@ -1,6 +1,7 @@
 import { X } from "react-feather";
 import { useDispatch } from "react-redux";
 import { setSidebarState } from "../../store/appData";
+import PokemonImage from "../pokemon/PokemonImage";
 
 function Popout(){
     const dispatch = useDispatch()
@@ -16,6 +17,7 @@ function Popout(){
                 className="close">
                     <X />
             </div>
+            <PokemonImage ID={1} />
         </div>
     )
 }

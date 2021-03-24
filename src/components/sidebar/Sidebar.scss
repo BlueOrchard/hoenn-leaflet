@@ -5,16 +5,18 @@
     z-index: 9999;
     padding: 10px;
 
-    img{
-        width: 100%;
-        display: block;
-        cursor: pointer;
-        opacity: 0.3;
-        transition: 0.25s all;
-
-        &:hover{
-            opacity: 1;
-            animation: 2s rotate cubic-bezier(1,0,0,1) infinite;
+    .visible-sidebar{
+        img{
+            width: 100%;
+            display: block;
+            cursor: pointer;
+            opacity: 0.3;
+            transition: 0.25s all;
+    
+            &:hover{
+                opacity: 1;
+                animation: 2s rotate cubic-bezier(1,0,0,1) infinite;
+            }
         }
     }
 }

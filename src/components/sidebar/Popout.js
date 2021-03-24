@@ -3,6 +3,7 @@ import { X } from "react-feather";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useDispatch, useSelector } from "react-redux";
 import { setSidebarState } from "../../store/appData";
+import Area from './Area'
 
 function Popout(){
     const [englishName, setEnglishName] = useState("")
@@ -30,8 +31,6 @@ function Popout(){
             setEnglishName("")
             setJapaneseName("")
         }
-
-        console.log(locationAreas)
     }, [locationInfo, locationAreas])
 
     function closeSidebar(){
@@ -52,9 +51,9 @@ function Popout(){
                         <h2 className="japanese-name">{japaneseName || <Skeleton />}</h2>
                     </div>
 
-                    {locationAreas.map((area) => {
-                        return area.name
-                    })}
+                    {locationAreas.map((area) => (
+                        <Area key={area.name} areaData={area}/>
+                    ))}
                 </SkeletonTheme>
             </div>
         </div>

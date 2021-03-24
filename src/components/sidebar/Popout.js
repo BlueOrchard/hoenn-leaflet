@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { X } from "react-feather";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useDispatch, useSelector } from "react-redux";
 import { setSidebarState } from "../../store/appData";
 
 function Popout(){
-    const [names, setNames] = useState(false)
     const [englishName, setEnglishName] = useState("")
     const [japaneseName, setJapaneseName] = useState("")
 
@@ -26,9 +26,9 @@ function Popout(){
                         break
                 }
             }))
-            setNames(true)
         } else {
-            setNames(false)
+            setEnglishName("")
+            setJapaneseName("")
         }
 
         console.log(locationAreas)
@@ -46,16 +46,16 @@ function Popout(){
                     <X />
             </div>
             <div className="inner-information">
-                {names && 
+                <SkeletonTheme color="#d7d7d7" highlightColor="#c6c6c6">
                     <div className="location-name">
-                        <h1 className="english-name">{englishName}</h1>
-                        <h2 className="japanese-name">{japaneseName}</h2>
+                        <h1 className="english-name">{englishName || <Skeleton />}</h1>
+                        <h2 className="japanese-name">{japaneseName || <Skeleton />}</h2>
                     </div>
-                }
 
-                {locationAreas.map((area) => {
-                    return area.name
-                })}
+                    {locationAreas.map((area) => {
+                        return area.name
+                    })}
+                </SkeletonTheme>
             </div>
         </div>
     )

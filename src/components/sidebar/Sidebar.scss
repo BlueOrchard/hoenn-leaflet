@@ -50,6 +50,24 @@
             }
         }
     }
+
+    .inner-information{
+        .location-name{
+            margin: 0 0 20px;
+
+            .english-name{
+                margin: 0;
+            }
+
+            .japanese-name{
+                margin: 0;
+                font-weight: normal;
+                font-style: italic;
+                font-size: 1.2rem;
+                color: var(--light-font-color);
+            }
+        }
+    }
 }
 
 @keyframes rotate{

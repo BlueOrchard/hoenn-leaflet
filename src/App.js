@@ -1,4 +1,5 @@
 import Map from "./components/map/Map";
+import './util/normalize.css'
 import './App.scss'
 import Sidebar from "./components/sidebar/Sidebar";
 

@@ -11,7 +11,7 @@ function PokemonImage(props){
 
     return(
         <div className="pokemon-image">
-            <img src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/${ID}.png`} />
+            <img src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/${ID}.png`} alt="" />
         </div>
     )
 }

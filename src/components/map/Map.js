@@ -9,7 +9,7 @@ import cities from '../../util/json/cities.json'
 import City from './City';
 
 function Events(){
-    const map = useMapEvents({
+    useMapEvents({
         click(e) {     
             console.log(`[${e.latlng.lat}, ${e.latlng.lng}]`)
         },            

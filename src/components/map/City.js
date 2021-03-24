@@ -2,8 +2,10 @@ import { Marker, Polygon } from "react-leaflet";
 import L from 'leaflet'
 import { setSidebarState } from "../../store/appData";
 import { useDispatch } from "react-redux";
+import { fetchLocationInfo } from "../../store/activeLocation";
 
 function City(props){
+    const ID = props.id
     const coords = props.coords
     const center = L.polygon(coords).getBounds().getCenter()
     const text = L.divIcon({
@@ -15,7 +17,7 @@ function City(props){
 
     function cityLookup(){
         dispatch(setSidebarState(true))
-        // dispatch the other stuff here
+        dispatch(fetchLocationInfo(ID))
     }
 
     return(

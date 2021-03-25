@@ -51,8 +51,8 @@ function Popout(){
                         <h2 className="japanese-name">{japaneseName || <Skeleton />}</h2>
                     </div>
 
-                    {locationAreas.map((area) => (
-                        <Area key={area.name} areaData={area}/>
+                    {locationAreas.map((area, key) => (
+                        <Area key={key} areaName={englishName} areaData={area}/>
                     ))}
                 </SkeletonTheme>
             </div>

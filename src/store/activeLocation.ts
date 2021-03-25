@@ -11,21 +11,17 @@ export const fetchLocationInfo = createAsyncThunk(
         // Fetch city/town information
         const response = await apiCalls.fetchLocation(cityTownID)
         
-        // Fetch city/town areas
-        response.data.areas.map((area: any) => {
+        // Fetch city/town areas - Promise made to ensure consistency
+        Promise.all(response.data.areas.map(async (area: any) => {
             let areaID = fetchIDFromURL(area.url)
-            dispatch(fetchLocationAreas(areaID))
+            const response = await apiCalls.fetchArea(areaID)
+
+            return response.data
+        })).then((results: any) => {
+            results.forEach((result: object) => {
+                dispatch(setLocationAreas(result))
+            })
         })
-
-        return response.data
-    }
-)
-
-// Not exported since this will be exclusively called in fetchLocationInfo
-const fetchLocationAreas = createAsyncThunk(
-    'activeLocation/fetchLocationAreas',
-    async (areaID: number) => {
-        const response = await apiCalls.fetchArea(areaID)
 
         return response.data
     }
@@ -48,18 +44,18 @@ export const activeLocation = createSlice({
         resetLocationArea: state => {
             state.locationInfo = {}
             state.locationAreas = []
+        },
+        setLocationAreas: (state, action: PayloadAction<object>) => {
+            state.locationAreas.push(action.payload)
         }
     },
     extraReducers: builder => {
         builder.addCase(fetchLocationInfo.fulfilled, (state, action: PayloadAction<object>) => {
             state.locationInfo = action.payload
         })
-        builder.addCase(fetchLocationAreas.fulfilled, (state, action: PayloadAction<object>) => {
-            state.locationAreas.push(action.payload)
-        })
     }
 })
 
-export const { resetLocationArea } = activeLocation.actions
+export const { resetLocationArea, setLocationAreas } = activeLocation.actions
 
 export default activeLocation.reducer

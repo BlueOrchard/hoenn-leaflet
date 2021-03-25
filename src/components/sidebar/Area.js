@@ -32,9 +32,11 @@ function Area(props){
 
                     {areaData.pokemon_encounters.map((pokemon_encounter) => (
                         <div key={pokemon_encounter.pokemon.name} className="single-pokemon">
+
                             <div className="image">
                                 <PokemonImage ID={fetchIDFromURL(pokemon_encounter.pokemon.url)} />
                             </div>
+
                             <div className="information">
                                 <h3 className="pokemon-name">{pokemon_encounter.pokemon.name}</h3>
                                 {pokemon_encounter.version_details[0].encounter_details.map((encounter_detail, key) =>(
@@ -45,6 +47,7 @@ function Area(props){
                                     </div>
                                 ))}
                             </div>
+                            
                         </div>
                     ))}
             </motion.div>
